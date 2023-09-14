@@ -2,6 +2,7 @@ import { SyntheticEvent, useState } from 'react';
 import { Activity } from '../../../app/models/activity';
 import { Button, Item, Label, Segment } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
+import { observer } from 'mobx-react-lite';
 
 interface Props {
   activities: Activity[];
@@ -9,7 +10,7 @@ interface Props {
   submitting: boolean;
 }
 
-export default function ActivityList({
+export default observer(function ActivityList({
   activities,
   deleteActivity,
   submitting,
@@ -17,7 +18,6 @@ export default function ActivityList({
   const [target, setTarget] = useState('');
 
   const { activityStore } = useStore();
-
 
   function handleActivityDelete(
     e: SyntheticEvent<HTMLButtonElement>,
@@ -64,4 +64,4 @@ export default function ActivityList({
       </Item.Group>
     </Segment>
   );
-}
+});
