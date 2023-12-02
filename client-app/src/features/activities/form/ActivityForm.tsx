@@ -12,6 +12,7 @@ import MyTextArea from "../../../app/common/form/MyTextArea";
 import MySelectInput from "../../../app/common/form/MySelectInput";
 import { categoryOptions } from "../../../app/common/options/catetgoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
+import { v4 as uuid } from "uuid";
 
 export default observer(function ActivityForm() {
   const { activityStore } = useStore();
@@ -74,7 +75,7 @@ export default observer(function ActivityForm() {
         onSubmit={(values) => handleSubmit(values)}
       >
         {({ handleSubmit, isValid, isSubmitting, dirty }) => (
-          <Form className="ui-form" onSubmit={handleSubmit} autoComplete="off">
+          <Form className="ui form" onSubmit={handleSubmit} autoComplete="off">
             <MyTextInput name="title" placeholder="Title" />
             <MyTextArea placeholder="Description" name="description" rows={3} />
             <MySelectInput
